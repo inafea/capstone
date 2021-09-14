@@ -22,7 +22,7 @@
             "containers":[
                {
                   "name":"blue",
-                  "image":"bnair75/capstone-blue",
+                  "image":"ibrahimnafea/udacity-blue",
                   "ports":[
                      {
                         "name":"http-server",
