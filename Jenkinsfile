@@ -7,7 +7,7 @@ node {
     }
     stage('Lint Dockerfiles') {
      
-      sh '/usr/bin/hlint blue/Dockerfile'
+      sh '/usr/bin/hlint src/blue/Dockerfile'
       sh '/usr/bin/hlint src/green/Dockerfile'
     }
     stage('Building Blue Image') {
