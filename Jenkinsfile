@@ -34,30 +34,30 @@ node {
       sh "sudo docker push ${registry2}"
       }
     }
-    // stage('Aws Cluster')
-    // {
-    // withAWS(credentials: 'eksuser', region: 'eu-west-3') {
-    //   sh 'eksctl create cluster \
-    //         --name capstone-cluster \
-    //         --version 1.21 \
-    //         --nodegroup-name capstone-workers-ng \
-    //         --node-type t2.micro \
-    //         --nodes 2 \
-    //         --nodes-min 1 \
-    //         --nodes-max 4 '
-    // }
-    // }
-    // stage('Deploying to AWS EKS') {
+    stage('Aws Cluster')
+    {
+    withAWS(credentials: 'eksuser', region: 'eu-west-3') {
+      sh 'eksctl create cluster \
+            --name capstone-cluster \
+            --version 1.21 \
+            --nodegroup-name capstone-workers-ng \
+            --node-type t2.micro \
+            --nodes 2 \
+            --nodes-min 1 \
+            --nodes-max 4 '
+    }
+    }
+    stage('Deploying to AWS EKS') {
      
-    //   dir ('./') {
-    //     withAWS(credentials: 'eksuser', region: 'eu-west-3') {
-    //         sh 'aws eks --region eu-west-3 update-kubeconfig --name capstone-cluster'
-    //         sh 'kubectl apply -f src/blue/blue-controller.json'
-    //        sh 'kubectl apply -f src/green/green-controller.json'
-    //         sh 'kubectl apply -f ./blue-green-service.json'
-    //         sh 'kubectl get nodes'
-    //         sh 'kubectl get pods'
-    //     }
-    //   }
-    // }
+      dir ('./') {
+        withAWS(credentials: 'eksuser', region: 'eu-west-3') {
+            sh 'aws eks --region eu-west-3 update-kubeconfig --name capstone-cluster'
+            sh 'kubectl apply -f src/blue/blue-controller.json'
+           sh 'kubectl apply -f src/green/green-controller.json'
+            sh 'kubectl apply -f ./blue-green-service.json'
+            sh 'kubectl get nodes'
+            sh 'kubectl get pods'
+        }
+      }
+    }
 }
