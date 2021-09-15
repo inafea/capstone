@@ -52,8 +52,8 @@ node {
       dir ('./') {
         withAWS(credentials: 'eksuser', region: 'eu-west-3') {
             sh 'aws eks --region eu-west-3 update-kubeconfig --name bn-prod'
-            sh 'kubectl apply -f blue/blue-controller.json'
-            sh 'kubectl apply -f green/green-controller.json'
+            //sh 'kubectl apply -f blue/blue-controller.json'
+           // sh 'kubectl apply -f green/green-controller.json'
             sh 'kubectl apply -f ./blue-green-service.json'
             sh 'kubectl get nodes'
             sh 'kubectl get pods'
