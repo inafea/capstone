@@ -28,19 +28,19 @@ node {
       sh "sudo docker push ${registry2}"
       }
     }
-    stage('Aws Cluster')
-    {
-    withAWS(credentials: 'eksuser', region: 'eu-west-3') {
-      sh 'eksctl create cluster \
-            --name capstone-cluster \
-            --version 1.21 \
-            --nodegroup-name capstone-workers-ng \
-            --node-type t2.micro \
-            --nodes 2 \
-            --nodes-min 1 \
-            --nodes-max 4 '
-    }
-    }
+    // stage('Aws Cluster')
+    // {
+    // withAWS(credentials: 'eksuser', region: 'eu-west-3') {
+    //   sh 'eksctl create cluster \
+    //         --name capstone-cluster \
+    //         --version 1.21 \
+    //         --nodegroup-name capstone-workers-ng \
+    //         --node-type t2.micro \
+    //         --nodes 2 \
+    //         --nodes-min 1 \
+    //         --nodes-max 4 '
+    // }
+    // }
     stage('Deploying to AWS EKS') {
      
       dir ('./') {
