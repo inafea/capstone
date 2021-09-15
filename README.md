@@ -16,7 +16,6 @@ Add dockerhub credentials to Jenkins https://medium.com/@gustavo.guss/jenkins-bu
 
 Add AWS Credentials to Jenkins https://medium.com/faun/ci-cd-pipeline-with-jenkins-and-aws-s3-c08a3656d381
 
-
 <h3> Steps </h3>
 
 #./run_docker.sh (For the blue image)
@@ -27,7 +26,7 @@ Add AWS Credentials to Jenkins https://medium.com/faun/ci-cd-pipeline-with-jenki
 
 #./upload_docker.sh (upload the green image to docker hub)
 
-ensure EKS is running 
+ensure EKS is running
 
 #kubectl apply -f ./blue-controller.json (create replication controller for blue)
 
@@ -42,6 +41,3 @@ Update the service to redirect to green by changing the selector to app=green
 #kubectl apply -f ./blue-green-service.json (after making the above changes)
 
 #kubectl get svc (now the color of page should have changed)
-
-
-
