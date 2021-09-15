@@ -3,6 +3,6 @@ eksctl create cluster \
 --version 1.21 \
 --nodegroup-name capstone-workers-ng \
 --node-type t2.micro \
---nodes 3 \
+--nodes 2 \
 --nodes-min 1 \
---nodes-max 4 
+--nodes-max 3 

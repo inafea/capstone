@@ -5,7 +5,6 @@ Resources:
   ClusterSharedNodeSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:
-      GroupDescription: Communication between all nodes in the cluster
       Tags:
         - Key: Name
           Value: !Sub '${AWS::StackName}/ClusterSharedNodeSecurityGroup'
@@ -29,7 +28,6 @@ Resources:
   ControlPlaneSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:
-      GroupDescription: Communication between the control plane and worker nodegroups
       Tags:
         - Key: Name
           Value: !Sub '${AWS::StackName}/ControlPlaneSecurityGroup'
@@ -37,7 +35,6 @@ Resources:
   IngressInterNodeGroupSG:
     Type: 'AWS::EC2::SecurityGroupIngress'
     Properties:
-      Description: Allow nodes to communicate with each other (all ports)
       FromPort: 0
       GroupId: !Ref ClusterSharedNodeSecurityGroup
       IpProtocol: '-1'
