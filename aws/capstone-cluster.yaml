@@ -13,7 +13,7 @@ Resources:
   ControlPlane:
     Type: 'AWS::EKS::Cluster'
     Properties:
-      Name: bn-prod
+      Name: capstone-cluster
       ResourcesVpcConfig:
         SecurityGroupIds:
           - !Ref ControlPlaneSecurityGroup
