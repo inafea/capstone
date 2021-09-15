@@ -1,10 +1,10 @@
 node {
     def registry1 = 'ibrahimnafea/udacity-blue'
     def registry2 = 'ibrahimnafea/udacity-green'
-    // stage('Checking out git repo') {
-    //   echo 'Checkout...'
-    //   checkout scm
-    // }
+    stage('Checking out git repo') {
+     
+      checkout scm
+    }
     stage('Checking environment') {
       
       sh 'git --version'
